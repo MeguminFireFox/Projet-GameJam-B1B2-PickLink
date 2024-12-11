@@ -11,7 +11,7 @@ public class Score : MonoBehaviour
         {
             Point += 1;
 
-            if (_role.Picsou)
+            if (_role.RoleName == "Picsou")
             {
                 Point += 2;
             }

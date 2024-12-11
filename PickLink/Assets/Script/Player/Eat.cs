@@ -14,7 +14,7 @@ public class Eat : MonoBehaviour
             _lunch += 1;
             _score.Point += 1;
 
-            if (_role.Glouton)
+            if (_role.RoleName == "Glouton")
             {
                 _score.Point += 2;
             }
