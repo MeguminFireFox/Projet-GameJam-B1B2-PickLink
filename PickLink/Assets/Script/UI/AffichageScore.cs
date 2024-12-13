@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Drawing;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +20,8 @@ public class AffichageScore : MonoBehaviour
         {
             Instance = this;
         }
+
+        Time.timeScale = 0f;
     }
 
     void Update()
@@ -61,5 +61,11 @@ public class AffichageScore : MonoBehaviour
         {
             _text[i].text = $"{_trueListString[i]} : {_listID[i].Point} point";
         }
+    }
+
+    public void OnStart()
+    {
+        Role role = _listIDRole[Random.Range(0, _listIDRole.Count)];
+        role.Fou = true;
     }
 }
