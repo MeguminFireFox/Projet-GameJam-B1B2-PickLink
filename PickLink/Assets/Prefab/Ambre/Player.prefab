@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 4934522422890729423}
   - component: {fileID: 6740141640590629569}
   - component: {fileID: 9022124293432510927}
+  - component: {fileID: 314279985401184247}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -220,6 +221,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e0e16449-4eab-486d-a21c-c4c432edf336
     m_ActionName: Player/Punch[/XInputControllerWindows/buttonEast,/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 314279985401184247}
+        m_TargetAssemblyTypeName: LaunchCoin, Assembly-CSharp
+        m_MethodName: OnLaunchCoin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 5a4d9269-52a3-47ca-bc4e-aed53d69527b
+    m_ActionName: Player/Shoot[/XInputControllerWindows/buttonWest,/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -322,6 +339,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Fou>k__BackingField: 0
+--- !u!114 &314279985401184247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754834199636537721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22724bca5ddc70b4cae911d0735fe61e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _force: 10
+  _role: {fileID: 9022124293432510927}
+  _time: 3
 --- !u!1 &6826090333265410446
 GameObject:
   m_ObjectHideFlags: 0
