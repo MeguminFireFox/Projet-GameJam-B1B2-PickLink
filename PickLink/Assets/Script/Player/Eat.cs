@@ -17,13 +17,13 @@ public class Eat : MonoBehaviour
             _lunch += 1;
             _score.Point += 1;
             transform.localScale += new Vector3(_foodInfluence, _foodInfluence, _foodInfluence);
-            _transformJump.position = new Vector3(0, _foodInfluence + 0.5f, 0);
+            _transformJump.position = new Vector3(transform.position.x, _foodInfluence + 0.5f, transform.position.z);
 
             if (_role.RoleName == "Glouton")
             {
                 _score.Point += 2;
                 transform.localScale += new Vector3(_foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus);
-                _transformJump.position = new Vector3(0, _foodInfluence * (_gloutonPlus + 0.5f), 0);
+                _transformJump.position = new Vector3(transform.position.x, _foodInfluence + 0.5f, transform.position.z);
             }
 
             Destroy(other.gameObject);
