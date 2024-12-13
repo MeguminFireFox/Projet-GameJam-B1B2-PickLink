@@ -1,13 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlatformReset : MonoBehaviour
 {
-    private bool _isReset = true;
+    [SerializeField] private bool _isReset = true;
+
     void Update()
     {
-        transform.Rotate(0, 0, 0);
+        if (!_isReset) return;
+
+        if (transform.rotation.z >= 0)
+        {
+            transform.Rotate(0, 0, -0.5f * Time.deltaTime);
+        }
+
+        if (transform.rotation.z <= 0)
+        {
+            transform.Rotate(0, 0, 0.5f * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,7 +31,7 @@ public class PlatformReset : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            _isReset = false;
+            _isReset = true;
         }
     }
 }
