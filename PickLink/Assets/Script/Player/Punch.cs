@@ -1,8 +1,10 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Punch : MonoBehaviour
 {
+    [field: SerializeField] public bool CanPunch { get; set; } = true;
     [SerializeField] private Transform _transform;
     [SerializeField] private LayerMask _affectedLayers;
     [SerializeField] private float _radius;
@@ -13,6 +15,8 @@ public class Punch : MonoBehaviour
 
     public void OnPunch(InputAction.CallbackContext context)
     {
+        if (!CanPunch) return;
+
         if (context.performed)
         {
             _charged = true;
@@ -21,6 +25,7 @@ public class Punch : MonoBehaviour
         if (context.canceled)
         {
             ActivePunch();
+            StartCoroutine(Wait());
             _charged = false;
             _time = 0;
         }
@@ -51,6 +56,22 @@ public class Punch : MonoBehaviour
                     rb.AddForce(transform.up * _forceUp, ForceMode.Impulse);
                 }
             }
+        }
+    }
+
+    IEnumerator Wait()
+    {
+        CanPunch = false;
+        yield return new WaitForSeconds(1);
+        CanPunch = true;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (_transform != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(_transform.position, _radius);
         }
     }
 }
