@@ -166,6 +166,17 @@
                 },
                 {
                     "name": "",
+                    "id": "d669899d-9096-4670-98e0-1dee219423c8",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "62f49b6c-c812-442c-9011-1f647a64f816",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
