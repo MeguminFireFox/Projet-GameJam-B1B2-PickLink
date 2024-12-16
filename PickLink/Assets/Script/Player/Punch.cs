@@ -15,9 +15,20 @@ public class Punch : MonoBehaviour
     [SerializeField] private float _dammage;
     [SerializeField] private Role _role;
     [SerializeField] private Score _score;
+    [SerializeField] public int KillCount { get; set; }
+    private bool _quota = false;
 
     public void OnPunch(InputAction.CallbackContext context)
     {
+        if (!_quota)
+        {
+            if (KillCount >= _score.Quota)
+            {
+                _score.Point += 100;
+                _quota = true;
+            }
+        }
+
         if (!CanPunch) return;
 
         if (context.performed)
@@ -48,20 +59,25 @@ public class Punch : MonoBehaviour
         {
             if (collider.gameObject == this.gameObject) continue;
 
-            if (collider.tag == "Enemy")
-            {
-                //EnemyHP enemy = collider.GetComponent<EnemyHP>
+            EnemyHP enemy = collider.GetComponent<EnemyHP>();
 
+            if (enemy != null)
+            {
                 if (_role.RoleName == "Killer")
                 {
-                    /*if (enemy.HP == 2)
+                    if (enemy.HP <= 3)
                     {
-                    _score.Point += 2;
-                    }*/
-                    //enemy.HP -= (_dammage * 2)
+                        KillCount += 1;
+                        _score.Point += 2;
+                    }
+                    enemy.HP -= (_dammage * 2);
                 }
 
-                //enemy.HP -= _dammage
+                if (enemy.HP <= 1)
+                {
+                    _score.Point += 1;
+                }
+                enemy.HP -= _dammage;
             }
             else
             {

@@ -293,11 +293,11 @@ MonoBehaviour:
   _transform: {fileID: 6738965833476419963}
   _affectedLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 136
   _radius: 1
   _force: 500
   _forceUp: 10
-  _dammage: 0
+  _dammage: 1
   _role: {fileID: 9022124293432510927}
   _score: {fileID: 6740141640590629569}
 --- !u!114 &4934522422890729423
