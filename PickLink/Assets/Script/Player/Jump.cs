@@ -14,7 +14,6 @@ public class Jump : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _collisionLayer;
     private bool _planing;
-    private bool _wait = true;
 
     private void Update()
     {
@@ -28,12 +27,6 @@ public class Jump : MonoBehaviour
             if (_planing)
             {
                 _rb.velocity = new Vector3(0, -0.1f, 0);
-                
-                if (_wait)
-                {
-                    _score.Point += 1;
-                    StartCoroutine(WaitPoint());
-                }
             }
         }
     }
@@ -71,13 +64,6 @@ public class Jump : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         CanJump = true;
-    }
-
-    IEnumerator WaitPoint()
-    {
-        _wait = false;
-        yield return new WaitForSeconds(3);
-        _wait = true;
     }
 
     void OnDrawGizmos()

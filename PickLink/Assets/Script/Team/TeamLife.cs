@@ -3,8 +3,9 @@ using UnityEngine;
 public class TeamLife : MonoBehaviour
 {
     public static TeamLife Instance;
-    [field: SerializeField] public int Life;
+    [field: SerializeField] public int Life { get; set; } = 5;
     [SerializeField] private GameObject _center;
+    [SerializeField] private GameObject _panelMort;
 
     void Awake()
     {
@@ -16,6 +17,11 @@ public class TeamLife : MonoBehaviour
 
     void Update()
     {
+        if (Life <= 0)
+        {
+            _panelMort.SetActive(true);
+        }
+
         Score[] score = FindObjectsOfType<Score>();
 
         if (score.Length == 0) return;
