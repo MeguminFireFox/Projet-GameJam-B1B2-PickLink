@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _role: {fileID: 9022124293432510927}
+  _listQuota: 4b0000001e0000002c0100004b000000
 --- !u!114 &9022124293432510927
 MonoBehaviour:
   m_ObjectHideFlags: 0
