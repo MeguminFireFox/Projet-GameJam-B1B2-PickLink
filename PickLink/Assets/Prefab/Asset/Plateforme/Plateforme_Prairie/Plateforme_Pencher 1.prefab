@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1190116680457606600}
   - component: {fileID: 7403991373868503103}
   - component: {fileID: 2228740461487479460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube_Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,6 +168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plateforme_Pencher 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91af85292588ad44fbec5d63fd1605e8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -175,8 +180,40 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 3732873002684365360}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91af85292588ad44fbec5d63fd1605e8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6309550116784551075}
   m_SourcePrefab: {fileID: 100100000, guid: 91af85292588ad44fbec5d63fd1605e8, type: 3}
+--- !u!1 &5148400812267246179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91af85292588ad44fbec5d63fd1605e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5454882326129979186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6309550116784551075
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148400812267246179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2212009239438826721, guid: 91af85292588ad44fbec5d63fd1605e8, type: 3}
 --- !u!4 &5492451931487324377 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 91af85292588ad44fbec5d63fd1605e8,
