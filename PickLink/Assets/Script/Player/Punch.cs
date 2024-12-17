@@ -12,9 +12,23 @@ public class Punch : MonoBehaviour
     [SerializeField] private float _forceUp;
     private bool _charged = false;
     private float _time;
+    [SerializeField] private float _dammage;
+    [SerializeField] private Role _role;
+    [SerializeField] private Score _score;
+    [SerializeField] public int KillCount { get; set; }
+    private bool _quota = false;
 
     public void OnPunch(InputAction.CallbackContext context)
     {
+        if (!_quota)
+        {
+            if (KillCount >= _score.Quota)
+            {
+                _score.Point += 100;
+                _quota = true;
+            }
+        }
+
         if (!CanPunch) return;
 
         if (context.performed)
@@ -45,15 +59,41 @@ public class Punch : MonoBehaviour
         {
             if (collider.gameObject == this.gameObject) continue;
 
-            Rigidbody rb = collider.GetComponent<Rigidbody>();
+            EnemyHP enemy = collider.GetComponent<EnemyHP>();
 
-            if (rb != null)
+            if (enemy != null)
             {
-                rb.AddExplosionForce(_force, _transform.position, _radius);
-
-                if (_time >= 1.5f)
+                if (_role.RoleName == "Killer")
                 {
-                    rb.AddForce(transform.up * _forceUp, ForceMode.Impulse);
+                    if (enemy.HP <= 3)
+                    {
+                        KillCount += 1;
+                        _score.Point += 2;
+                    }
+                    enemy.HP -= (_dammage * 2);
+                }
+
+                if (enemy.HP <= 1)
+                {
+                    _score.Point += 1;
+                }
+                enemy.HP -= _dammage;
+            }
+            else
+            {
+                Rigidbody rb = collider.GetComponent<Rigidbody>();
+                PlayerStun stun = rb.GetComponent<PlayerStun>();
+
+                if (rb != null)
+                {
+                    rb.AddExplosionForce(_force, _transform.position, _radius);
+                    stun.Torpeur += 10;
+
+                    if (_time >= 1.5f)
+                    {
+                        rb.AddForce(transform.up * _forceUp, ForceMode.Impulse);
+                        stun.Torpeur += 10;
+                    }
                 }
             }
         }

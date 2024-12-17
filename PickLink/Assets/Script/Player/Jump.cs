@@ -14,10 +14,20 @@ public class Jump : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _collisionLayer;
     private bool _planing;
-    private bool _wait = true;
+    [SerializeField] public int JumpCount {  get; set; }
+    private bool _quota = false;
 
     private void Update()
     {
+        if (!_quota)
+        {
+            if (JumpCount >= _score.Quota)
+            {
+                _score.Point += 100;
+                _quota = true;
+            }
+        }
+
         if (CanJump)
         {
             _jump = Physics.OverlapSphere(_groundCheck.position, _radius, _collisionLayer).Length > 0;
@@ -28,12 +38,6 @@ public class Jump : MonoBehaviour
             if (_planing)
             {
                 _rb.velocity = new Vector3(0, -0.1f, 0);
-                
-                if (_wait)
-                {
-                    _score.Point += 1;
-                    StartCoroutine(WaitPoint());
-                }
             }
         }
     }
@@ -54,6 +58,7 @@ public class Jump : MonoBehaviour
             if (_role.RoleName == "Voltigeur")
             {
                 _score.Point += 1;
+                JumpCount += 1;
                 _planing = true;
             }
         }
@@ -71,13 +76,6 @@ public class Jump : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         CanJump = true;
-    }
-
-    IEnumerator WaitPoint()
-    {
-        _wait = false;
-        yield return new WaitForSeconds(3);
-        _wait = true;
     }
 
     void OnDrawGizmos()
