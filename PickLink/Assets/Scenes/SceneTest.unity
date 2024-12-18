@@ -8609,6 +8609,7 @@ MonoBehaviour:
   - Voltigeur
   - Glouton
   _panelImpostorWin: {fileID: 1026429231}
+  _listQuotaObjectif: 
 --- !u!114 &1450425195
 MonoBehaviour:
   m_ObjectHideFlags: 0
