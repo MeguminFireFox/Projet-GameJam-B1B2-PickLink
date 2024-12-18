@@ -13,6 +13,7 @@ public class PlayerDistance : MonoBehaviour
     private LayerMask layerMask;
     private Rigidbody rb;
 
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

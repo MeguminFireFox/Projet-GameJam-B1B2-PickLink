@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3885807866396404117}
   - component: {fileID: 620915182529097002}
   - component: {fileID: 5095796249385765810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 3955956410896272209}
   - component: {fileID: 4635737566469299568}
   - component: {fileID: 7799870026510423779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,6 +274,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plateforme_Ronde_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7b074fd0d85b3434b85f2f61f8493265,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
