@@ -37,7 +37,7 @@ public class PlayerStun : MonoBehaviour
 
     }
 
-    private void Stun(bool booleen)
+    public void Stun(bool booleen)
     {
         _movement.IsMoving = booleen;
         _jump.CanJump = booleen;

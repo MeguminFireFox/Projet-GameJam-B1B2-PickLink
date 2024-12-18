@@ -21,15 +21,19 @@ public class Score : MonoBehaviour
         {
             case "Picsou":
                 Quota = ListQuota[0];
+                _role.Objectif = "Ramasser le plus de Pieces";
                 break;
             case "Killer":
                 Quota = ListQuota[1];
+                _role.Objectif = "Tuer le plus d'Ennemis";
                 break;
             case "Voltigeur":
                 Quota = ListQuota[2];
+                _role.Objectif = "Sauter le plus de fois";
                 break;
             case "Glouton":
                 Quota = ListQuota[3];
+                _role.Objectif = "Ramasser le plus de Viande";
                 break;
         }
         yield return new WaitForSeconds(0.1f);
