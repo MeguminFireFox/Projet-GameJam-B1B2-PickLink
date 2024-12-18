@@ -272,11 +272,13 @@ MonoBehaviour:
   _score: {fileID: 6740141640590629569}
   _rb: {fileID: 8581879705028680780}
   _jumpForce: 7.5
+  _jump: 0
   _groundCheck: {fileID: 4332653623010320955}
   _radius: 0.4
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 72
+  _planing: 0
 --- !u!114 &66556677186870596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,7 +376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Torpeur>k__BackingField: 0
-  _torpeurObjectif: 100
+  <_torpeurObjectif>k__BackingField: 0
   _movement: {fileID: 1752306093241201249}
   _jump: {fileID: 8360800225966168795}
   _punch: {fileID: 66556677186870596}

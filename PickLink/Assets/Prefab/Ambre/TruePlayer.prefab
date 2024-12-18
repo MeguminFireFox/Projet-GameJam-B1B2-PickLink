@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 6726379138641002674}
   - component: {fileID: 4781481662451327924}
   - component: {fileID: 902881756994789662}
+  - component: {fileID: 4929191478930863815}
   m_Layer: 3
   m_Name: TruePlayer
   m_TagString: Player
@@ -329,6 +330,22 @@ MonoBehaviour:
   _punch: {fileID: 7184250834374685783}
   _launchCoin: {fileID: 4781481662451327924}
   _role: {fileID: 6726379138641002674}
+--- !u!114 &4929191478930863815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2873018728942245227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f4ca4915d3290d478ecc0b4fd8ffe03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerNeighboor1: {fileID: 0}
+  MiddlePoint1: {fileID: 0}
+  PlayerNeighboor2: {fileID: 0}
+  MiddlePoint2: {fileID: 0}
 --- !u!1 &6769466847541494791
 GameObject:
   m_ObjectHideFlags: 0
