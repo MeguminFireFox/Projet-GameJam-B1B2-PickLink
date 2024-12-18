@@ -14,6 +14,7 @@ public class AffichageScore : MonoBehaviour
     [SerializeField] private List<TMP_Text> _text;
     [SerializeField] private List<string> _listString;
     [SerializeField] private GameObject _panelImpostorWin;
+    [SerializeField] private List<int> _listQuotaObjectif;
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
     private int _impostor;
@@ -79,6 +80,10 @@ public class AffichageScore : MonoBehaviour
     
     public void RoleAttribute()
     {
+        for (int i = 0; i < _listQuotaObjectif.Count; i++)
+        {
+            _listID[_player].ListQuota.Add(_listQuotaObjectif[i]);
+        }
         string role = _listString[Random.Range(0, _listString.Count)];
         _listIDRole[_player].RoleName = role;
         _trueListString.Add(role);
