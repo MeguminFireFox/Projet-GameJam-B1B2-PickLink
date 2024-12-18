@@ -5,20 +5,19 @@ using UnityEngine;
 
 public class LineRendererLinkPlayer : MonoBehaviour
 {
-    LineRenderer lr;
-    public Transform[] PlayersTransform;
+    public LineRenderer lr;
+    public List<GameObject> PlayersTransform;
 
     private void Start()
     {
         lr = GetComponent<LineRenderer>();
-        lr.positionCount = PlayersTransform.Length;
     }
 
     private void Update()
     {
-        for (int i = 0; i < PlayersTransform.Length; i++)
+        for (int i = 0; i < PlayersTransform.Count; i++)
         {
-            lr.SetPosition(i, PlayersTransform[i].position);
+            lr.SetPosition(i, PlayersTransform[i].transform.position);
         }
     }
 }

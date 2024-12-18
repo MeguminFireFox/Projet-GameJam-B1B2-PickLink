@@ -5,13 +5,20 @@ using UnityEngine;
 public class PlayerDistance : MonoBehaviour
 {
     [SerializeField]
-    private GameObject PlayerNeighboor1;
+    public GameObject PlayerNeighboor1;
 
     [SerializeField]
-    private GameObject MiddlePoint;
+    public GameObject MiddlePoint1;
 
-    private LayerMask layerMask;
+    [SerializeField]
+    public GameObject PlayerNeighboor2;
+
+    [SerializeField]
+    public GameObject MiddlePoint2;
+
     private Rigidbody rb;
+
+    public int PlayerDistanceNB = 10;
 
 
     private void Start()
@@ -21,11 +28,21 @@ public class PlayerDistance : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(GetDistance(gameObject.transform, PlayerNeighboor1.transform) > 10)
+        if(GetDistance(gameObject.transform, PlayerNeighboor1.transform) > PlayerDistanceNB)
         {
-            Vector3 direction = MiddlePoint.transform.position - gameObject.transform.position;
+            Vector3 direction = MiddlePoint1.transform.position - gameObject.transform.position;
             rb.AddForce(direction*2f);
         }
+
+        if (PlayerNeighboor2 != null)
+        {
+            if (GetDistance(gameObject.transform, PlayerNeighboor2.transform) > PlayerDistanceNB)
+            {
+                Vector3 direction = MiddlePoint2.transform.position - gameObject.transform.position;
+                rb.AddForce(direction * 2f);
+            }
+        }
+
     } 
 
     public float GetDistance(Transform transform1, Transform transform2)
