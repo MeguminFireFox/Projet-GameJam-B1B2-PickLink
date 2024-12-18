@@ -3,18 +3,23 @@ using System.Collections;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AffichageScore : MonoBehaviour
 {
     public static AffichageScore Instance;
 
-    [SerializeField] private List<Score> _listID;
+    [field: SerializeField] public int IDPlayer { get; set; } = 0;
+    [field: SerializeField] public List<Score> _listID {  get; set; }
     [SerializeField] private List<Role> _listIDRole;
     [SerializeField] private List<GameObject> _objectText;
     [SerializeField] private List<TMP_Text> _text;
     [SerializeField] private List<string> _listString;
     [SerializeField] private GameObject _panelImpostorWin;
     [SerializeField] private List<int> _listQuotaObjectif;
+    [SerializeField] private List<TMP_Text> _listTextPres;
+    [SerializeField] private List<Sprite> _listSprite;
+    [SerializeField] private Image _imagepres;
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
     private int _impostor;
@@ -37,6 +42,22 @@ public class AffichageScore : MonoBehaviour
         FindAndAddPoints();
         OnActualisation();
 
+        switch (IDPlayer)
+        {
+            case 1:
+                PresRole(0);
+                break;
+            case 2:
+                PresRole(1);
+                break;
+            case 3:
+                PresRole(2);
+                break;
+            case 4:
+                PresRole(3);
+                break;
+        }
+
         if (!_start) return;
 
         if (_listID[_impostor].CurrentQuota >= _listID[_impostor].Quota)
@@ -58,6 +79,26 @@ public class AffichageScore : MonoBehaviour
                 _panelImpostorWin.SetActive(true);
                 Time.timeScale = 0f;
             }
+        }
+    }
+
+    private void PresRole(int player)
+    {
+        if (!_listIDRole[player].Fou)
+        {
+            _listTextPres[0].text = $"Vous êtes {_listIDRole[player].RoleName} et Innocent";
+            _listTextPres[1].text = $"Votre objectif :\n{_listIDRole[player].Objectif}\nVotre quota a remplir : X/{_listID[player].Quota}";
+            _listTextPres[2].text = $"Votre objectif en tant qu'innocent :\nFinir le niveau avec vos amis moutons.";
+            _listTextPres[3].text = $"Attention au fou il peut être n'importe qui.";
+            _imagepres.sprite = _listSprite[0];
+        }
+        else
+        {
+            _listTextPres[0].text = $"Vous êtes {_listIDRole[player].RoleName} et Imposteur";
+            _listTextPres[1].text = $"Votre objectif :\n{_listIDRole[player].Objectif}\nVotre quota a remplir : X/{_listID[player].Quota}";
+            _listTextPres[2].text = $"Votre objectif en tant qu'imposteur :\nEmpecher les autres joueur de finir le niveau.";
+            _listTextPres[3].text = $"Fais en sorte de rester discret.";
+            _imagepres.sprite = _listSprite[1];
         }
     }
 
