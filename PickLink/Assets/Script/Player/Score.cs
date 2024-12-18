@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -9,7 +7,7 @@ public class Score : MonoBehaviour
     [SerializeField] private Role _role;
     [SerializeField] public int Point { get; set; } = 0;
     [field : SerializeField] public int Quota { get; set; }
-    [SerializeField] private List<int> _listQuota;
+    [SerializeField] public List<int> ListQuota { get; set; } = new List<int>();
     [field: SerializeField] public int CurrentQuota { get; set; }
     private bool _invincibility = false;
     [SerializeField] public int CoinCount { get; set; }
@@ -22,16 +20,16 @@ public class Score : MonoBehaviour
         switch (_role.RoleName)
         {
             case "Picsou":
-                Quota = _listQuota[0];
+                Quota = ListQuota[0];
                 break;
             case "Killer":
-                Quota = _listQuota[1];
+                Quota = ListQuota[1];
                 break;
             case "Voltigeur":
-                Quota = _listQuota[2];
+                Quota = ListQuota[2];
                 break;
             case "Glouton":
-                Quota = _listQuota[3];
+                Quota = ListQuota[3];
                 break;
         }
         yield return new WaitForSeconds(0.1f);
