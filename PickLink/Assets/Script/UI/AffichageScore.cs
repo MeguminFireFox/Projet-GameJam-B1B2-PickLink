@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -11,8 +13,13 @@ public class AffichageScore : MonoBehaviour
     [SerializeField] private List<GameObject> _objectText;
     [SerializeField] private List<TMP_Text> _text;
     [SerializeField] private List<string> _listString;
+    [SerializeField] private GameObject _panelImpostorWin;
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
+    private int _impostor;
+    private List<PlayerStun> _listNotImpostor = new List<PlayerStun>();
+    private List<bool> _listBool = new List<bool>();
+    private bool _start = false;
 
     void Awake()
     {
@@ -28,6 +35,29 @@ public class AffichageScore : MonoBehaviour
     {
         FindAndAddPoints();
         OnActualisation();
+
+        if (!_start) return;
+
+        if (_listID[_impostor].CurrentQuota >= _listID[_impostor].Quota)
+        {
+            for (int i = 0; i < _listNotImpostor.Count; i++)
+            {
+                if (_listNotImpostor[i].Torpeur >= _listNotImpostor[i]._torpeurObjectif)
+                {
+                    _listBool[i] = true;
+                }
+                else
+                {
+                    _listBool[i] = false;
+                }
+            }
+
+            if (_listBool.All(b => b))
+            {
+                _panelImpostorWin.SetActive(true);
+                Time.timeScale = 0f;
+            }
+        }
     }
 
     private void FindAndAddPoints()
@@ -59,13 +89,35 @@ public class AffichageScore : MonoBehaviour
     {
         for (int i = 0; i < _listID.Count; i++)
         {
-            _text[i].text = $"{_trueListString[i]} : {_listID[i].Point} point";
+            _text[i].text = $"{_trueListString[i]} Quota :\n {_listID[i].CurrentQuota} / {_listID[i].Quota}";
+
+            if (_listID[i].CurrentQuota >= _listID[i].Quota && _listID[i].CurrentQuota >= 1)
+            {
+                _text[i].color = Color.green;
+            }
         }
     }
 
     public void OnStart()
     {
-        Role role = _listIDRole[Random.Range(0, _listIDRole.Count)];
+        _impostor = Random.Range(0, _listIDRole.Count);
+        Role role = _listIDRole[_impostor];
         role.Fou = true;
+
+        for (int i = 0; i < _listID.Count; i++)
+        {
+            if (i != _impostor)
+            {
+                _listNotImpostor.Add(_listID[i].GetComponent<PlayerStun>());
+                _listBool.Add(false);
+            }
+        }
+        StartCoroutine(WaitStart());
+    }
+
+    IEnumerator WaitStart()
+    {
+        yield return new WaitForSeconds(5);
+        _start = true;
     }
 }

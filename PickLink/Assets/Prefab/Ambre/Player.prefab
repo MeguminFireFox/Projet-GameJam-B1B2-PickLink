@@ -276,7 +276,7 @@ MonoBehaviour:
   _radius: 0.4
   _collisionLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72
 --- !u!114 &66556677186870596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,7 +330,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _role: {fileID: 9022124293432510927}
-  _listQuota: 4b0000001e0000002c0100004b000000
+  <Quota>k__BackingField: 0
+  _listQuota: 0a0000000a0000000a0000000a000000
+  <CurrentQuota>k__BackingField: 0
 --- !u!114 &9022124293432510927
 MonoBehaviour:
   m_ObjectHideFlags: 0

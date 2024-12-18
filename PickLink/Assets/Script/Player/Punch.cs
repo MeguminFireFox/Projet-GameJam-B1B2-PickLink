@@ -17,18 +17,21 @@ public class Punch : MonoBehaviour
     [SerializeField] private Score _score;
     [SerializeField] public int KillCount { get; set; }
     private bool _quota = false;
+    private bool _canQuota = false;
+
+    private void Start()
+    {
+        StartCoroutine(ActiveQuota());
+    }
+
+    IEnumerator ActiveQuota()
+    {
+        yield return new WaitForSeconds(2.5f);
+        _canQuota = true;
+    }
 
     public void OnPunch(InputAction.CallbackContext context)
     {
-        if (!_quota)
-        {
-            if (KillCount >= _score.Quota)
-            {
-                _score.Point += 100;
-                _quota = true;
-            }
-        }
-
         if (!CanPunch) return;
 
         if (context.performed)
@@ -47,6 +50,18 @@ public class Punch : MonoBehaviour
 
     void Update()
     {
+        if (_canQuota)
+        {
+            if (!_quota)
+            {
+                if (KillCount >= _score.Quota && _role.RoleName == "Killer")
+                {
+                    _score.Point += 100;
+                    _quota = true;
+                }
+            }
+        }
+
         if (!_charged) return;
 
         _time += Time.deltaTime;
@@ -68,9 +83,10 @@ public class Punch : MonoBehaviour
                     if (enemy.HP <= 3)
                     {
                         KillCount += 1;
+                        _score.CurrentQuota = KillCount;
                         _score.Point += 2;
                     }
-                    enemy.HP -= (_dammage * 2);
+                    enemy.HP -= (_dammage + 1);
                 }
 
                 if (enemy.HP <= 1)

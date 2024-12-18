@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerStun : MonoBehaviour
 {
     [field : SerializeField] public float Torpeur {  get; set; }
-    [SerializeField] private float _torpeurObjectif;
+    [field : SerializeField] public float _torpeurObjectif { get; set; }
     [SerializeField] private Movement _movement;
     [SerializeField] private Jump _jump;
     [SerializeField] private Punch _punch;
@@ -31,7 +31,7 @@ public class PlayerStun : MonoBehaviour
     IEnumerator Wait()
     {
         Stun(false);
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(6);
         Torpeur = 0;
         Stun(true);
 

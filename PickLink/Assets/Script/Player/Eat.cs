@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Eat : MonoBehaviour
@@ -9,15 +10,30 @@ public class Eat : MonoBehaviour
     [SerializeField] private Transform _transformJump;
     [SerializeField] public int Lunch {  get; set; }
     private bool _quota = false;
+    private bool _canQuota = false;
+
+    private void Start()
+    {
+        StartCoroutine(ActiveQuota());
+    }
+
+    IEnumerator ActiveQuota()
+    {
+        yield return new WaitForSeconds(2.5f);
+        _canQuota = true;
+    }
 
     void Update()
     {
-        if (_quota) return;
-
-        if (Lunch >= _score.Quota)
+        if (_canQuota)
         {
-            _score.Point += 100;
-            _quota = true;
+            if (_quota) return;
+
+            if (Lunch >= _score.Quota && _role.RoleName == "Glouton")
+            {
+                _score.Point += 100;
+                _quota = true;
+            }
         }
     }
 
@@ -26,15 +42,24 @@ public class Eat : MonoBehaviour
         if (other.gameObject.tag == "Food")
         {
             _score.Point += 1;
-            transform.localScale += new Vector3(_foodInfluence, _foodInfluence, _foodInfluence);
-            _transformJump.position -= new Vector3(0, _foodInfluence, 0);
+            Lunch += 1;
+
+            if (Lunch <= 5)
+            {
+                transform.localScale += new Vector3(_foodInfluence, _foodInfluence, _foodInfluence);
+                _transformJump.position -= new Vector3(0, _foodInfluence, 0);
+            }
 
             if (_role.RoleName == "Glouton")
             {
-                Lunch += 1;
+                _score.CurrentQuota = Lunch;
                 _score.Point += 2;
-                transform.localScale += new Vector3(_foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus);
-                _transformJump.position -= new Vector3(0, _foodInfluence, 0);
+
+                if (Lunch <= 5)
+                {
+                    transform.localScale += new Vector3(_foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus, _foodInfluence * _gloutonPlus);
+                    _transformJump.position -= new Vector3(0, _foodInfluence, 0);
+                }
             }
 
             Destroy(other.gameObject);
