@@ -28,10 +28,13 @@ public class PlayerDistance : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(GetDistance(gameObject.transform, PlayerNeighboor1.transform) > PlayerDistanceNB)
+        if (PlayerNeighboor1 != null)
         {
-            Vector3 direction = MiddlePoint1.transform.position - gameObject.transform.position;
-            rb.AddForce(direction*2f);
+            if (GetDistance(gameObject.transform, PlayerNeighboor1.transform) > PlayerDistanceNB)
+            {
+                Vector3 direction = MiddlePoint1.transform.position - gameObject.transform.position;
+                rb.AddForce(direction * 2f);
+            }
         }
 
         if (PlayerNeighboor2 != null)
