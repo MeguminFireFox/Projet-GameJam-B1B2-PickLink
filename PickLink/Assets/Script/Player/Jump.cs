@@ -13,12 +13,16 @@ public class Jump : MonoBehaviour
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _radius;
     [SerializeField] private LayerMask _collisionLayer;
+    [SerializeField] private LayerMask _verifSol;
+
     [SerializeField] private bool _planing;
     [SerializeField] public int JumpCount {  get; set; }
     [SerializeField] private Animator _animator;
     private bool _quota = false;
     private bool _canQuota = false;
     private Collider[] _colliders;
+    private bool _canCheck;
+    [SerializeField] public Vector3 _posRespawn;
 
     private void Start()
     {
@@ -33,6 +37,13 @@ public class Jump : MonoBehaviour
 
     private void Update()
     {
+        _canCheck = Physics.OverlapSphere(_groundCheck.position, _radius, _verifSol).Length > 0;
+
+        if (_canCheck)
+        {
+            _posRespawn = transform.position;
+        }
+
         if (_canQuota)
         {
             if (!_quota)

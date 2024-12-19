@@ -10,12 +10,12 @@ public class PlatformReset : MonoBehaviour
 
         if (transform.rotation.z >= 0)
         {
-            transform.Rotate(0, 0, -1f * Time.deltaTime);
+            transform.Rotate(0, 0, -10f * Time.deltaTime);
         }
 
         if (transform.rotation.z <= 0)
         {
-            transform.Rotate(0, 0, 1f * Time.deltaTime);
+            transform.Rotate(0, 0, 10f * Time.deltaTime);
         }
     }
 

@@ -15,6 +15,10 @@ public class Score : MonoBehaviour
     private bool _canQuota = false;
     [SerializeField] private Animator _animator;
     [SerializeField] private List<GameObject> _listAccesoire;
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private Jump _jump;
+    private Vector3 _posRespawn;
+    private bool _actuSpawn;
 
     IEnumerator ActiveQuota()
     {
@@ -66,6 +70,18 @@ public class Score : MonoBehaviour
                 _quota = true;
             }
         }
+
+        if (!_actuSpawn) return;
+
+        StartCoroutine(Spawn());
+    }
+
+    IEnumerator Spawn()
+    {
+        _actuSpawn = false;
+        _posRespawn = transform.position;
+        yield return new WaitForSeconds(5);
+        _actuSpawn = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -82,6 +98,15 @@ public class Score : MonoBehaviour
             }
 
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.tag == "eau")
+        {
+            //transform.position = new Vector3(TeamLife.Instance.Center.transform.position.x, TeamLife.Instance.Center.transform.position.y + 5, TeamLife.Instance.Center.transform.position.z);
+            //transform.position = _posRespawn;
+            transform.position = _jump._posRespawn;
+            TeamLife.Instance.Life--;
+            _rb.velocity = Vector3.zero;
         }
     }
 

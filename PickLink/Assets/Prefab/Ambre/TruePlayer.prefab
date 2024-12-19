@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4f6cc7c7c901a4aa1eba1478a6c397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 5
+  _speed: 4
   _animator: {fileID: 2433203390457438965}
 --- !u!114 &8322171911138860075
 MonoBehaviour:
@@ -274,15 +274,19 @@ MonoBehaviour:
   _role: {fileID: 6726379138641002674}
   _score: {fileID: 8601690905878891710}
   _rb: {fileID: 978468530384925014}
-  _jumpForce: 7.5
+  _jumpForce: 6.5
   _jump: 0
   _groundCheck: {fileID: 8590485213574515701}
-  _radius: 0.4
+  _radius: 0.2
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 72
+  _verifSol:
+    serializedVersion: 2
+    m_Bits: 64
   _planing: 0
   _animator: {fileID: 2433203390457438965}
+  _posRespawn: {x: 0, y: 0, z: 0}
 --- !u!114 &7184250834374685783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +304,7 @@ MonoBehaviour:
   _affectedLayers:
     serializedVersion: 2
     m_Bits: 136
-  _radius: 1
+  _radius: 0.3
   _force: 500
   _forceUp: 10
   _dammage: 1
@@ -321,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _role: {fileID: 6726379138641002674}
   _score: {fileID: 8601690905878891710}
-  _foodInfluence: 0.03
+  _foodInfluence: 0.01
   _gloutonPlus: 2
   _transformJump: {fileID: 8590485213574515701}
 --- !u!114 &8601690905878891710
@@ -347,6 +351,8 @@ MonoBehaviour:
   - {fileID: 1502452516529979191}
   - {fileID: 3085460217436916629}
   - {fileID: 4157486940430208740}
+  _rb: {fileID: 978468530384925014}
+  _jump: {fileID: 8322171911138860075}
 --- !u!114 &6726379138641002674
 MonoBehaviour:
   m_ObjectHideFlags: 0

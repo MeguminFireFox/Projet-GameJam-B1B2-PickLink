@@ -7,6 +7,7 @@ TagManager:
   - Coin
   - Food
   - Enemy
+  - eau
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class AffichageScore : MonoBehaviour
     [SerializeField] private List<TMP_Text> _listTextPres;
     [SerializeField] private List<Sprite> _listSprite;
     [SerializeField] private Image _imagepres;
-    [SerializeField] private Vector3 _spawnpoint;
+    [field : SerializeField] public Vector3 _spawnpoint {  get; set; }
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
     private int _impostor;

@@ -4,7 +4,7 @@ public class TeamLife : MonoBehaviour
 {
     public static TeamLife Instance;
     [field: SerializeField] public int Life { get; set; } = 5;
-    [SerializeField] private GameObject _center;
+    [field: SerializeField] public GameObject Center {  get; set; }
     [SerializeField] private GameObject _panelMort;
 
     void Awake()
@@ -26,7 +26,7 @@ public class TeamLife : MonoBehaviour
 
         if (score.Length == 0) return;
 
-        _center.transform.position = CalculateCenter(score);
+        Center.transform.position = CalculateCenter(score);
     }
     Vector3 CalculateCenter(Score[] transforms)
     {

@@ -141,7 +141,7 @@ public class Punch : MonoBehaviour
         CanPunch = false;
         //yield return new WaitForSeconds(0.1f);
         //_animator.SetBool("IsHit", false);
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.45f);
         CanPunch = true;
     }
 
