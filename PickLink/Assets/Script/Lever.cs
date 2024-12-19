@@ -20,6 +20,7 @@ public class Lever : MonoBehaviour
         {
             animator.SetBool("Activer", true);
         }
+        ConditionLever.instance.CheckToOpen();
     }
 
     public void OnTriggerEnter(Collider other)
