@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6005788537995942269}
   - component: {fileID: 7513722604679854481}
   - component: {fileID: 6721734986167110462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6005788537995942269
 Transform:
@@ -75,12 +75,12 @@ GameObject:
   - component: {fileID: 4538418515504529329}
   - component: {fileID: 672276651119013908}
   - component: {fileID: 3364364038445991134}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arbre_mort
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4538418515504529329
 Transform:
