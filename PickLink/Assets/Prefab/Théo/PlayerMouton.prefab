@@ -222,7 +222,7 @@ MonoBehaviour:
   _jumpForce: 7.5
   _jump: 0
   _groundCheck: {fileID: 8590485213574515701}
-  _radius: 0.4
+  _radius: 0.2
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 72
@@ -244,7 +244,7 @@ MonoBehaviour:
   _affectedLayers:
     serializedVersion: 2
     m_Bits: 136
-  _radius: 1
+  _radius: 0.4
   _force: 500
   _forceUp: 10
   _dammage: 1
@@ -281,7 +281,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _role: {fileID: 6726379138641002674}
   <Quota>k__BackingField: 0
-  _listQuota: 0a0000000a0000000a0000000a000000
   <CurrentQuota>k__BackingField: 0
 --- !u!114 &6726379138641002674
 MonoBehaviour:
@@ -296,6 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Fou>k__BackingField: 0
+  <Objectif>k__BackingField: 
 --- !u!114 &4781481662451327924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
   MiddlePoint1: {fileID: 0}
   PlayerNeighboor2: {fileID: 0}
   MiddlePoint2: {fileID: 0}
+  PlayerDistanceNB: 5
 --- !u!1 &6769466847541494791
 GameObject:
   m_ObjectHideFlags: 0
