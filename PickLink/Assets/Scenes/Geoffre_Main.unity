@@ -603,7 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea83498e106f94c4da5315b85ec4a50f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _listID: []
+  <IDPlayer>k__BackingField: 0
+  <_listID>k__BackingField: []
   _listIDRole: []
   _objectText:
   - {fileID: 18026422}
@@ -622,6 +623,9 @@ MonoBehaviour:
   - Glouton
   _panelImpostorWin: {fileID: 0}
   _listQuotaObjectif: 
+  _listTextPres: []
+  _listSprite: []
+  _imagepres: {fileID: 0}
 --- !u!1 &246699432
 GameObject:
   m_ObjectHideFlags: 0
@@ -2483,6 +2487,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelDesactive: {fileID: 1938626209}
+  _groupPanelPres: {fileID: 0}
+  _listStun: []
 --- !u!114 &1310351858
 MonoBehaviour:
   m_ObjectHideFlags: 0
