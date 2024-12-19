@@ -42,12 +42,19 @@ public class Punch : MonoBehaviour
 
         if (context.canceled)
         {
-            ActivePunch();
-            _animator.SetBool("IsHit", true);
-            StartCoroutine(Wait());
-            _charged = false;
-            _time = 0;
+            StartCoroutine(WaitAttack());
         }
+    }
+
+    IEnumerator WaitAttack()
+    {
+        _animator.SetBool("IsHit", true);
+        yield return new WaitForSeconds(0.2f);
+        _animator.SetBool("IsHit", false);
+        ActivePunch();
+        StartCoroutine(Wait());
+        _charged = false;
+        _time = 0;
     }
 
     void Update()
@@ -95,6 +102,11 @@ public class Punch : MonoBehaviour
                 {
                     _score.Point += 1;
                 }
+                else
+                {
+                    enemy.Animator.SetBool("IsHit", true);
+                    StartCoroutine(WaitAnimationEnemy(enemy));
+                }
                 enemy.HP -= _dammage;
             }
             else
@@ -127,8 +139,8 @@ public class Punch : MonoBehaviour
     IEnumerator Wait()
     {
         CanPunch = false;
-        yield return new WaitForSeconds(0.1f);
-        _animator.SetBool("IsHit", false);
+        //yield return new WaitForSeconds(0.1f);
+        //_animator.SetBool("IsHit", false);
         yield return new WaitForSeconds(0.9f);
         CanPunch = true;
     }
@@ -137,6 +149,12 @@ public class Punch : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         stun.Animator.SetBool("IsAie", false);
+    }
+
+    IEnumerator WaitAnimationEnemy(EnemyHP enemy)
+    {
+        yield return new WaitForSeconds(0.1f);
+        enemy.Animator.SetBool("IsHit", false);
     }
 
     void OnDrawGizmos()

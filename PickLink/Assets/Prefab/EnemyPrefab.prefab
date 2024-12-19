@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 6183397158601253486}
   - component: {fileID: 2555152744222456926}
   - component: {fileID: 4138087447625785546}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemyMushroom
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!195 &8982148042998281065
 NavMeshAgent:
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <HP>k__BackingField: 3
+  Animator: {fileID: 8765519236735561692}
+  _enemyPatrol: {fileID: 2555152744222456926}
 --- !u!114 &2555152744222456926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,8 +452,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 852fd8c2c968c0e40ba68d33d99c1966,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8765519236735561692}
   m_SourcePrefab: {fileID: 100100000, guid: 852fd8c2c968c0e40ba68d33d99c1966, type: 3}
+--- !u!1 &5967180899191211620 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 852fd8c2c968c0e40ba68d33d99c1966,
+    type: 3}
+  m_PrefabInstance: {fileID: 6777572984606751541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8765519236735561692
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5967180899191211620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1e78a6b6a4f8d14088ec38606caf3c0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6450421050730192094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 852fd8c2c968c0e40ba68d33d99c1966,
