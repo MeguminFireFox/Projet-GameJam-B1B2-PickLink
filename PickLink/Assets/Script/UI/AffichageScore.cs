@@ -20,6 +20,7 @@ public class AffichageScore : MonoBehaviour
     [SerializeField] private List<TMP_Text> _listTextPres;
     [SerializeField] private List<Sprite> _listSprite;
     [SerializeField] private Image _imagepres;
+    [SerializeField] private Vector3 _spawnpoint;
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
     private int _impostor;
@@ -111,6 +112,7 @@ public class AffichageScore : MonoBehaviour
             if (!_listID.Contains(point))
             {
                 _listID.Add(point);
+                point.transform.position = _spawnpoint;
                 _listIDRole.Add(point.gameObject.GetComponent<Role>());
                 _objectText[_player].SetActive(true);
                 RoleAttribute();
