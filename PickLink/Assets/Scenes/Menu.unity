@@ -1315,8 +1315,8 @@ Transform:
   m_GameObject: {fileID: 267210063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.7987, y: -11.4, z: 14.7}
-  m_LocalScale: {x: 13.166401, y: 1.0972, z: 13.166401}
+  m_LocalPosition: {x: 26.8228, y: -11.4, z: 96.5559}
+  m_LocalScale: {x: 28.057138, y: 2.3380947, z: 28.057138}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2460,10 +2460,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoint:
-  - {fileID: 1872730947}
   - {fileID: 1701960594}
-  - {fileID: 1290896264}
   - {fileID: 653402418}
+  - {fileID: 1290896264}
+  - {fileID: 1872730947}
   currentWaypointIndex: 0
   player: {fileID: 0}
   SeePlayer: 0
@@ -5829,9 +5829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wayPoint:
-  - {fileID: 1701960594}
-  - {fileID: 1872730947}
   - {fileID: 1290896264}
+  - {fileID: 1872730947}
+  - {fileID: 1701960594}
   - {fileID: 653402418}
   currentWaypointIndex: 0
   player: {fileID: 0}
