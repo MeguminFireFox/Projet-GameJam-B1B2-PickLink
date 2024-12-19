@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed = 5; // La vitesse du joueur
     [SerializeField] public Vector2 CurrentMovement {  get; set; }
     [SerializeField] public bool IsMoving { get; set; } = true; // Booléen pour empecher le joueur de bouger ou non
+    [SerializeField] private Animator _animator;
 
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -22,8 +23,13 @@ public class Movement : MonoBehaviour
 
         if (mouvement != Vector3.zero)
         {
+            _animator.SetFloat("Velocity", 7);
             Quaternion toRotation = Quaternion.LookRotation(mouvement, Vector2.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 720 * Time.fixedDeltaTime);
+        }
+        else
+        {
+            _animator.SetFloat("Velocity", 0);
         }
     }
 }

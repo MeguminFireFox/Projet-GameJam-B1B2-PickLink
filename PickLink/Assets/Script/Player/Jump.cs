@@ -15,6 +15,7 @@ public class Jump : MonoBehaviour
     [SerializeField] private LayerMask _collisionLayer;
     [SerializeField] private bool _planing;
     [SerializeField] public int JumpCount {  get; set; }
+    [SerializeField] private Animator _animator;
     private bool _quota = false;
     private bool _canQuota = false;
     private Collider[] _colliders;
@@ -72,6 +73,7 @@ public class Jump : MonoBehaviour
         {
             if (context.performed && _jump && collider.gameObject != this.gameObject)
             {
+                _animator.SetBool("IsJump", true);
                 ActiveJump();
 
                 if (_role.RoleName == "Voltigeur")
@@ -96,6 +98,7 @@ public class Jump : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.1f);
+        _animator.SetBool("IsJump", false);
         CanJump = true;
     }
 

@@ -15,6 +15,7 @@ public class Punch : MonoBehaviour
     [SerializeField] private float _dammage;
     [SerializeField] private Role _role;
     [SerializeField] private Score _score;
+    [SerializeField] private Animator _animator;
     [SerializeField] public int KillCount { get; set; }
     private bool _quota = false;
     private bool _canQuota = false;
@@ -42,6 +43,7 @@ public class Punch : MonoBehaviour
         if (context.canceled)
         {
             ActivePunch();
+            _animator.SetBool("IsHit", true);
             StartCoroutine(Wait());
             _charged = false;
             _time = 0;
@@ -105,6 +107,13 @@ public class Punch : MonoBehaviour
                     rb.AddExplosionForce(_force, _transform.position, _radius);
                     stun.Torpeur += 10;
 
+                    if (stun.Torpeur < stun._torpeurObjectif)
+                    {
+                        stun.Animator.SetBool("IsAie", true);
+                    }
+
+                    StartCoroutine(WaitAnimation(stun));
+
                     if (_time >= 1.5f)
                     {
                         rb.AddForce(transform.up * _forceUp, ForceMode.Impulse);
@@ -118,8 +127,16 @@ public class Punch : MonoBehaviour
     IEnumerator Wait()
     {
         CanPunch = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
+        _animator.SetBool("IsHit", false);
+        yield return new WaitForSeconds(0.9f);
         CanPunch = true;
+    }
+
+    IEnumerator WaitAnimation(PlayerStun stun)
+    {
+        yield return new WaitForSeconds(0.1f);
+        stun.Animator.SetBool("IsAie", false);
     }
 
     void OnDrawGizmos()

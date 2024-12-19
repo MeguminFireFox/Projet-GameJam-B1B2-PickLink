@@ -10,6 +10,8 @@ public class PlayerStun : MonoBehaviour
     [SerializeField] private Punch _punch;
     [SerializeField] private LaunchCoin _launchCoin;
     [SerializeField] private Role _role;
+    [field : SerializeField] public Animator Animator {  get; set; }
+    private bool _enabled = false;
 
     private void Start()
     {
@@ -25,6 +27,14 @@ public class PlayerStun : MonoBehaviour
         if (Torpeur >= _torpeurObjectif)
         {
             StartCoroutine(Wait());
+
+            if (_enabled) return;
+
+            if (!Animator.GetBool("IsStun"))
+            {
+                Animator.SetBool("IsStun", true);
+                StartCoroutine(WaitAnimation());
+            }
         }
     }
 
@@ -34,7 +44,15 @@ public class PlayerStun : MonoBehaviour
         yield return new WaitForSeconds(6);
         Torpeur = 0;
         Stun(true);
+    }
 
+    IEnumerator WaitAnimation()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _enabled = true;
+        Animator.SetBool("IsStun", false);
+        yield return new WaitForSeconds(2.9f);
+        _enabled = false;
     }
 
     public void Stun(bool booleen)
