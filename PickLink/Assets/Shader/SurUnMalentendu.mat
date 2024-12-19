@@ -36,7 +36,7 @@ Material:
     - _DepthMaxDistance: 1
     - _FoamMaxDistance: 3
     - _FoamMinDistance: 0.04
-    - _SurfaceDistortionAmount: 0.4
+    - _SurfaceDistortionAmount: 0.09
     - _SurfaceNoiseCutoff: 0.65
     m_Colors:
     - _DepthGradientDeep: {r: 0.2533819, g: 0.41986698, b: 0.735849, a: 1}
