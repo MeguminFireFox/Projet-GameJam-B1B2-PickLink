@@ -9,6 +9,8 @@ public class PlateformeFall : MonoBehaviour
     private Vector3 startPosition;
     bool ToFall;
 
+    public float TimeToFall = 2f;
+
     private void Start()
     {
         startPosition = gameObject.transform.parent.position;
@@ -34,12 +36,13 @@ public class PlateformeFall : MonoBehaviour
         if (collision.gameObject.layer == 3)
         {
             StartCoroutine(Fall());
+            
         }
     }
 
     private IEnumerator Fall()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(TimeToFall);
         ToFall = true;
         yield return new WaitForSeconds(10f);
         ToFall = false;
