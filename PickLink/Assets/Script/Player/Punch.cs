@@ -19,6 +19,7 @@ public class Punch : MonoBehaviour
     [SerializeField] public int KillCount { get; set; }
     private bool _quota = false;
     private bool _canQuota = false;
+    private int _counter = 0;
 
     private void Start()
     {
@@ -87,27 +88,33 @@ public class Punch : MonoBehaviour
 
             if (enemy != null)
             {
-                if (_role.RoleName == "Killer")
-                {
-                    if (enemy.HP <= 3)
-                    {
-                        KillCount += 1;
-                        _score.CurrentQuota = KillCount;
-                        _score.Point += 2;
-                    }
-                    enemy.HP -= (_dammage + 1);
-                }
+                _counter += 1;
 
-                if (enemy.HP <= 1)
+                if (_counter == 2)
                 {
-                    _score.Point += 1;
+                    if (_role.RoleName == "Killer")
+                    {
+                        if (enemy.HP <= 3)
+                        {
+                            KillCount += 1;
+                            _score.CurrentQuota = KillCount;
+                            _score.Point += 2;
+                        }
+                        enemy.HP -= (_dammage + 1);
+                    }
+
+                    if (enemy.HP <= 1)
+                    {
+                        _score.Point += 1;
+                    }
+                    else
+                    {
+                        enemy.Animator.SetBool("IsHit", true);
+                        StartCoroutine(WaitAnimationEnemy(enemy));
+                    }
+                    enemy.HP -= _dammage;
+                    _counter = 0;
                 }
-                else
-                {
-                    enemy.Animator.SetBool("IsHit", true);
-                    StartCoroutine(WaitAnimationEnemy(enemy));
-                }
-                enemy.HP -= _dammage;
             }
             else
             {

@@ -44,6 +44,14 @@ public class Eat : MonoBehaviour
             _score.Point += 1;
             Lunch += 1;
 
+            GameObject objectSound = SoundObjectPool1.Instance.GetPooledObject();
+
+            if (objectSound != null)
+            {
+                objectSound.transform.position = transform.position;
+                objectSound.SetActive(true);
+            }
+
             if (Lunch <= 5)
             {
                 transform.localScale += new Vector3(_foodInfluence, _foodInfluence, _foodInfluence);
