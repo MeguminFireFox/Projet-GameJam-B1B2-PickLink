@@ -10,6 +10,8 @@ public class Timer : MonoBehaviour
 
     private bool isTimerRunning = false;
 
+    public GameObject DeathPanel;
+
     public TextMeshProUGUI timerText;
 
     void Awake()
@@ -45,6 +47,6 @@ public class Timer : MonoBehaviour
 
         timerText.text = "00:00";
         isTimerRunning = false;
-        //Je pensais mettre ici quand le Timer prends fin la partie du code où ça affiche le GameOver
+        DeathPanel.SetActive(true);
     }
 }
