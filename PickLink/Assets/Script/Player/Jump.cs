@@ -85,6 +85,15 @@ public class Jump : MonoBehaviour
             if (context.performed && _jump && collider.gameObject != this.gameObject)
             {
                 _animator.SetBool("IsJump", true);
+
+                GameObject objectSound = SoundObjectPool.Instance.GetPooledObject();
+
+                if (objectSound != null)
+                {
+                    objectSound.transform.position = transform.position;
+                    objectSound.SetActive(true);
+                }
+
                 ActiveJump();
 
                 if (_role.RoleName == "Voltigeur")

@@ -90,6 +90,14 @@ public class Score : MonoBehaviour
         {
             Point += 1;
 
+            GameObject objectSound = SoundObjectPool2.Instance.GetPooledObject();
+
+            if (objectSound != null)
+            {
+                objectSound.transform.position = transform.position;
+                objectSound.SetActive(true);
+            }
+
             if (_role.RoleName == "Picsou")
             {
                 CoinCount += 1;
