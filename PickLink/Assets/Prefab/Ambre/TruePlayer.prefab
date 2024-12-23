@@ -280,7 +280,7 @@ MonoBehaviour:
   _radius: 0.05
   _collisionLayer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 584
   _verifSol:
     serializedVersion: 2
     m_Bits: 64

@@ -2623,9 +2623,7 @@ GameObject:
   - component: {fileID: 67208267}
   - component: {fileID: 67208266}
   - component: {fileID: 67208265}
-  - component: {fileID: 67208264}
-  - component: {fileID: 67208263}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: PlatformeRotateReact (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2640,54 +2638,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67208261}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.000000014901161, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.10261897, w: 0.99472076}
   m_LocalPosition: {x: 70.65429, y: 3.9327965, z: -160.13055}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1638974033}
   m_Father: {fileID: 233347346}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &67208263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67208261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4926bb8a4d7c41545b0c1d02af458f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isReset: 1
---- !u!54 &67208264
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 67208261}
-  serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 62
-  m_CollisionDetection: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.78}
 --- !u!65 &67208265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6481,6 +6439,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Plateforme_rotative_m
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795802591085303842, guid: de26842b804d79143be80d59b1bb57e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4604568832107201176, guid: de26842b804d79143be80d59b1bb57e5,
         type: 3}
@@ -31619,9 +31582,7 @@ GameObject:
   - component: {fileID: 1247088044}
   - component: {fileID: 1247088043}
   - component: {fileID: 1247088042}
-  - component: {fileID: 1247088041}
-  - component: {fileID: 1247088040}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: PlatformeRotateReact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31636,54 +31597,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247088038}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.000000014901161, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.10261897, w: 0.99472076}
   m_LocalPosition: {x: 61.124283, y: 2.5374966, z: -160.13055}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1521015305}
   m_Father: {fileID: 233347346}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1247088040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247088038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4926bb8a4d7c41545b0c1d02af458f10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isReset: 1
---- !u!54 &1247088041
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247088038}
-  serializedVersion: 4
-  m_Mass: 10
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 62
-  m_CollisionDetection: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 11.78}
 --- !u!65 &1247088042
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -44747,6 +44668,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plateforme_rotative_m
       objectReference: {fileID: 0}
+    - target: {fileID: 3795802591085303842, guid: de26842b804d79143be80d59b1bb57e5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4604568832107201176, guid: de26842b804d79143be80d59b1bb57e5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -45812,7 +45738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1886763821
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46736,7 +46662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Life>k__BackingField: 50
   <Center>k__BackingField: {fileID: 1494402458}
-  _panelMort: {fileID: 0}
+  _panelMort: {fileID: 1886763820}
 --- !u!114 &1903966529
 MonoBehaviour:
   m_ObjectHideFlags: 0
