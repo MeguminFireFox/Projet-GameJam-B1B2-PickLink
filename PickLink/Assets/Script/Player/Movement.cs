@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] public Vector2 CurrentMovement {  get; set; }
     [SerializeField] public bool IsMoving { get; set; } = true; // Booléen pour empecher le joueur de bouger ou non
     [SerializeField] private Animator _animator;
+    private bool _sfx = true;
 
     public void OnMovement(InputAction.CallbackContext context)
     {
@@ -26,10 +28,29 @@ public class Movement : MonoBehaviour
             _animator.SetFloat("Velocity", 7);
             Quaternion toRotation = Quaternion.LookRotation(mouvement, Vector2.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, 720 * Time.fixedDeltaTime);
+
+            if (!_sfx) return;
+
+            StartCoroutine(Wait());
         }
         else
         {
             _animator.SetFloat("Velocity", 0);
         }
+    }
+
+    IEnumerator Wait()
+    {
+        GameObject objectSound = SoundObjectPool7.Instance.GetPooledObject();
+
+        if (objectSound != null)
+        {
+            objectSound.transform.position = transform.position;
+            objectSound.SetActive(true);
+        }
+
+        _sfx = false;
+        yield return new WaitForSeconds(0.5f);
+        _sfx = true;
     }
 }

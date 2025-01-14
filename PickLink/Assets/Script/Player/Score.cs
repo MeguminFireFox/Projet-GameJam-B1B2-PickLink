@@ -132,6 +132,14 @@ public class Score : MonoBehaviour
 
     IEnumerator Wait()
     {
+        GameObject objectSound = SoundObjectPool3.Instance.GetPooledObject();
+
+        if (objectSound != null)
+        {
+            objectSound.transform.position = transform.position;
+            objectSound.SetActive(true);
+        }
+
         _invincibility = true;
         yield return new WaitForSeconds(0.1f);
         _animator.SetBool("IsAie", false);

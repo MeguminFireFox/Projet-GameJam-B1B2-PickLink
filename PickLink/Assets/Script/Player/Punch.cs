@@ -160,6 +160,14 @@ public class Punch : MonoBehaviour
 
     IEnumerator WaitAnimationEnemy(EnemyHP enemy)
     {
+        GameObject objectSound = SoundObjectPool6.Instance.GetPooledObject();
+
+        if (objectSound != null)
+        {
+            objectSound.transform.position = transform.position;
+            objectSound.SetActive(true);
+        }
+
         yield return new WaitForSeconds(0.1f);
         enemy.Animator.SetBool("IsHit", false);
     }

@@ -326,7 +326,7 @@ MonoBehaviour:
   _role: {fileID: 6726379138641002674}
   _score: {fileID: 8601690905878891710}
   _foodInfluence: 0.01
-  _gloutonPlus: 2
+  _gloutonPlus: 1
   _transformJump: {fileID: 8590485213574515701}
 --- !u!114 &8601690905878891710
 MonoBehaviour:

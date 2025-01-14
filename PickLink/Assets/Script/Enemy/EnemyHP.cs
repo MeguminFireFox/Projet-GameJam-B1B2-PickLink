@@ -19,6 +19,14 @@ public class EnemyHP : MonoBehaviour
 
     IEnumerator Wait()
     {
+        GameObject objectSound = SoundObjectPool4.Instance.GetPooledObject();
+
+        if (objectSound != null)
+        {
+            objectSound.transform.position = transform.position;
+            objectSound.SetActive(true);
+        }
+
         yield return new WaitForSeconds(0.1f);
         Animator.SetBool("IsMort", false);
         yield return new WaitForSeconds(3f);
@@ -36,6 +44,14 @@ public class EnemyHP : MonoBehaviour
 
     IEnumerator WaitAnimation()
     {
+        GameObject objectSound = SoundObjectPool5.Instance.GetPooledObject();
+
+        if (objectSound != null)
+        {
+            objectSound.transform.position = transform.position;
+            objectSound.SetActive(true);
+        }
+
         yield return new WaitForSeconds(0.1f);
         Animator.SetBool("IsAttack", false);
     }

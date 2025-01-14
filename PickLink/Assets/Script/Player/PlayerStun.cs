@@ -12,6 +12,7 @@ public class PlayerStun : MonoBehaviour
     [SerializeField] private Role _role;
     [field : SerializeField] public Animator Animator {  get; set; }
     private bool _enabled = false;
+    [field : SerializeField] public bool Arrive { get; private set; } = false;
 
     private void Start()
     {
@@ -61,5 +62,13 @@ public class PlayerStun : MonoBehaviour
         _jump.CanJump = booleen;
         _punch.CanPunch = booleen;
         _launchCoin.CanLaunch = booleen;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "House")
+        {
+            Arrive = true;
+        }
     }
 }

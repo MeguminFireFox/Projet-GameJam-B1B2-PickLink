@@ -16,16 +16,19 @@ public class AffichageScore : MonoBehaviour
     [SerializeField] private List<TMP_Text> _text;
     [SerializeField] private List<string> _listString;
     [SerializeField] private GameObject _panelImpostorWin;
+    [SerializeField] private GameObject _panelInnocentWin;
     [SerializeField] private List<int> _listQuotaObjectif;
     [SerializeField] private List<TMP_Text> _listTextPres;
     [SerializeField] private List<Sprite> _listSprite;
     [SerializeField] private Image _imagepres;
+    [SerializeField] private List<TMP_Text> _listText;
     [field : SerializeField] public Vector3 _spawnpoint {  get; set; }
     private List<string> _trueListString = new List<string>();
     private int _player = 0;
     private int _impostor;
     private List<PlayerStun> _listNotImpostor = new List<PlayerStun>();
     private List<bool> _listBool = new List<bool>();
+    private List<bool> _listBool2 = new List<bool>();
     private bool _start = false;
 
     void Awake()
@@ -79,6 +82,32 @@ public class AffichageScore : MonoBehaviour
             {
                 _panelImpostorWin.SetActive(true);
                 Time.timeScale = 0f;
+            }
+        }
+
+        for (int a = 0; a < _listNotImpostor.Count; a++)
+        {
+            if (_listNotImpostor[a].Arrive == true)
+            {
+                _listBool2[a] = true;
+            }
+
+            if (_listBool2.All(c => c))
+            {
+                _panelInnocentWin.SetActive(true);
+                Time.timeScale = 0f;
+
+                int f = 0;
+
+                for (int e = 0; e < _listID.Count; e++)
+                {
+                    if (e != _impostor)
+                    {
+                        _listText[f].gameObject.SetActive(true);
+                        _listText[f].text = $"{_listIDRole[e].RoleName} : {_listID[e].Point} points";
+                        f++;
+                    }
+                }
             }
         }
     }
@@ -158,6 +187,7 @@ public class AffichageScore : MonoBehaviour
             {
                 _listNotImpostor.Add(_listID[i].GetComponent<PlayerStun>());
                 _listBool.Add(false);
+                _listBool2.Add(false);
             }
         }
         StartCoroutine(WaitStart());

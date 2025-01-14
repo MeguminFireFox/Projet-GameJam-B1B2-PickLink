@@ -13,6 +13,14 @@ public class Bumper : MonoBehaviour
         {
             Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
             rb.AddForce(Vector3.up*bounceForce, ForceMode.Impulse);
+
+            GameObject objectSound = SoundObjectPool8.Instance.GetPooledObject();
+
+            if (objectSound != null)
+            {
+                objectSound.transform.position = transform.position;
+                objectSound.SetActive(true);
+            }
         }
     }
 }

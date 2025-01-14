@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class TeamLife : MonoBehaviour
@@ -6,6 +7,7 @@ public class TeamLife : MonoBehaviour
     [field: SerializeField] public int Life { get; set; } = 5;
     [field: SerializeField] public GameObject Center {  get; set; }
     [SerializeField] private GameObject _panelMort;
+    [SerializeField] private TMP_Text _text;
 
     void Awake()
     {
@@ -17,6 +19,8 @@ public class TeamLife : MonoBehaviour
 
     void Update()
     {
+        _text.text = $"{Life}";
+
         if (Life <= 0)
         {
             _panelMort.SetActive(true);
